@@ -14,18 +14,25 @@ public class Main extends Application {
 		frame= primaryStage;
 		//label1
 		Label label1 = new Label("Welcome to MININET!");
-		Button viewProfile= new Button("View the profiles on Mininet!");
-		viewProfile.setOnAction(e -> frame.setScene(AddProfile));
+		Button addProfile= new Button("Add a new profile to Mininet!");
+		addProfile.setOnAction(e -> {
+			boolean answer = (boolean) AddPerson.close("Add a profile", "Are you sure to Add?");
+			System.out.println(answer);
+		});
+		Button selectProfile = new Button("Select a profile");
+		selectProfile.setOnAction(e->{
+			SelectProfile.select("Make a selection of the Profile,", "Select a Person From Mininet");
+		});
 		Button exit = new Button("Close Application");
 		exit.setOnAction(e -> ExitApp.close("Exit Mininet","Close and Exit Mininet"));
 		// primary layout
+		
 		VBox primarylayout = new VBox(20);
 		primarylayout.setAlignment(Pos.CENTER);
-		primarylayout.getChildren().addAll(label1,viewProfile,exit);
+		primarylayout.getChildren().addAll(label1,addProfile,selectProfile,exit);
 		Profile = new Scene(primarylayout,500,500); 
 		// Button
-		Button view= new Button("List of people on Mininet");
-		view.setOnAction(e -> frame.setScene(AddProfile));
+		Button view= new Button("Add a new Profile to Mininet");
 		StackPane layout2= new StackPane();	
 		layout2.getChildren().add(view);
 		AddProfile= new Scene(layout2,600,300);
