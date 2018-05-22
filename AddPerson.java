@@ -23,7 +23,7 @@ public class AddPerson {
            {
         	   response=true;
         	   @SuppressWarnings("resource")
-			Scanner in = new Scanner(System.in);
+			   Scanner in = new Scanner(System.in);
         	   System.out.println("Enter your profile name: ");
         	   String name =in.nextLine();
         	   System.out.println("Enter your Age: ");
@@ -34,8 +34,6 @@ public class AddPerson {
         	   String image = in.nextLine();
         	   System.out.println("Enter your phNo: ");
         	   String num = in.nextLine();
-        	   
-        	  
         	   try {
         	    	// 1.connection  to database
         	    	   mycon = DriverManager.getConnection("jdbc:mysql://localhost:3306/mininet?autoReconnect=true&useSSL=false","root","root"); 

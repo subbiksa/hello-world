@@ -21,20 +21,28 @@ public class Main extends Application {
 		});
 		Button selectProfile = new Button("Select a profile");
 		selectProfile.setOnAction(e->{
-			SelectProfile.select("Make a selection of the Profile,", "Select a Person From Mininet");
+			SelectPerson.select("Make a selection of the Profile,", "Select a Person From Mininet");
 		});
+		Button view = new Button("Display a profile");
+		view.setOnAction(e->{
+			displayProfile.display("Display", "View the profiles on Mininet");
+		});
+		Button delete = new Button("Delete a profile");
+		delete.setOnAction(e->{
+			 deleteProfile.delete("Delete", "Deletion of profiles on Mininet");
+		});
+		
 		Button exit = new Button("Close Application");
 		exit.setOnAction(e -> ExitApp.close("Exit Mininet","Close and Exit Mininet"));
 		// primary layout
-		
 		VBox primarylayout = new VBox(20);
 		primarylayout.setAlignment(Pos.CENTER);
-		primarylayout.getChildren().addAll(label1,addProfile,selectProfile,exit);
+		primarylayout.getChildren().addAll(label1,addProfile,selectProfile,view,delete,exit);
 		Profile = new Scene(primarylayout,500,500); 
 		// Button
-		Button view= new Button("Add a new Profile to Mininet");
+		Button view1= new Button("Add a new Profile to Mininet");
 		StackPane layout2= new StackPane();	
-		layout2.getChildren().add(view);
+		layout2.getChildren().add(view1);
 		AddProfile= new Scene(layout2,600,300);
 		frame.setScene(Profile);
 		frame.setTitle("MININET");
